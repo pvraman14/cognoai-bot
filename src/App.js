@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Background from "./Component/backgroundUpper/Background";
+import { useState } from "react";
 
 function App() {
+  const NEED_HELP = 'need help?'
+  const CLOSE_HELP = 'close bot'
+  const [bot, setBot] = useState(false);
+  const onClickHandler = () => {
+    setBot(!bot);
+    console.log(bot);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1 className="headerMain">Chatbot UI</h1>
+      <button className="bot-btn" onClick={onClickHandler} >
+        {bot ? CLOSE_HELP : NEED_HELP}
+      </button>
+      <div className={bot ? 'background' : 'hidden'}>
+
+        <Background show={bot} hide={onClickHandler} className='background' />
+      </div>
     </div>
   );
 }

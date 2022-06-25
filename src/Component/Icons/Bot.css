@@ -1,0 +1,8 @@
+.backimage {
+  background-image: url("../../assets/backimage.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 97px;
+  height: 97px;
+}
